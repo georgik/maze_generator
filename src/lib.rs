@@ -58,7 +58,13 @@ mod test_util;
 
 #[macro_use]
 pub mod prelude;
+#[cfg(feature = "ellers_algorithm")]
 pub mod ellers_algorithm;
+#[cfg(feature = "growing_tree")]
 pub mod growing_tree;
+
+#[cfg(feature = "prims_algorithm")]
 pub mod prims_algorithm;
+
+#[cfg(feature = "recursive_backtracking")]
 pub mod recursive_backtracking;

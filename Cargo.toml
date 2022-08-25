@@ -23,3 +23,12 @@ anyhow = "1.0.56"
 [dev-dependencies]
 quickcheck = "0.9.1"
 clap = { version = "3.1.5", features = ["derive"] }
+
+[features]
+default = [ "std", "ellers_algorithm", "growing_tree", "prims_algorithm", "recursive_backtracking" ]
+
+std = []
+ellers_algorithm = [ "std" ]
+growing_tree = []
+prims_algorithm = []
+recursive_backtracking = []
