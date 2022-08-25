@@ -1,21 +1,25 @@
 //! Common traits and members
 
 use anyhow::Result;
+#[cfg(feature = "std")]
 use thiserror::Error;
 
 pub use coordinates::*;
 pub use direction::*;
 pub use field::*;
 pub use maze::*;
+#[cfg(feature = "std")]
 pub use svgoptions::*;
 
 mod coordinates;
 mod direction;
 mod field;
 mod maze;
+#[cfg(feature = "std")]
 mod svgoptions;
 
 /// Generic error type that could be returned by all implemented generators.
+#[cfg(feature = "std")]
 #[derive(Error, Debug, Clone, Eq, PartialEq)]
 pub enum GenericGeneratorError {
     /// Error that can be raised anywhere in a generator that is not otherwise explicitly handled.

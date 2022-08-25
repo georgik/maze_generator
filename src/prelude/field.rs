@@ -1,5 +1,8 @@
 use super::*;
 
+#[cfg(not(feature = "std"))]
+use petgraph::lib::Vec;
+
 /// Defines the possible types of fields that exist in a maze
 #[derive(Debug, Copy, Clone)]
 pub enum FieldType {
@@ -44,6 +47,7 @@ impl Field {
     }
 }
 
+#[cfg(feature = "std")]
 impl std::fmt::Debug for Field {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct(stringify!(Field))

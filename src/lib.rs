@@ -11,6 +11,7 @@
     clippy::expect_used,
     clippy::panic
 )]
+#![cfg_attr(not(feature = "std"), no_std)]
 
 //! This is a collection of different maze generation algorithms.
 //!

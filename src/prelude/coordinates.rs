@@ -1,3 +1,4 @@
+#[cfg(feature = "std")]
 use std::fmt::{Debug, Display, Formatter};
 
 use crate::prelude::*;
@@ -51,6 +52,7 @@ impl From<(i32, i32)> for Coordinates {
     }
 }
 
+#[cfg(feature = "std")]
 impl Display for Coordinates {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         f.write_str(&format!("({}, {})", self.x, self.y))

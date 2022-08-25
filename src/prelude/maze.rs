@@ -1,10 +1,15 @@
+#[cfg(feature = "std")]
 use std::fmt::Write;
 
+#[cfg(feature = "std")]
 use anyhow::{anyhow, Result};
+#[cfg(feature = "std")]
 use petgraph::algo::is_isomorphic;
 use petgraph::graphmap::GraphMap;
+#[cfg(feature = "std")]
 use petgraph::stable_graph::DefaultIx;
 use petgraph::Undirected;
+use petgraph::lib::Vec;
 
 use crate::prelude::*;
 
@@ -72,6 +77,7 @@ impl Maze {
     }
 }
 
+#[cfg(feature = "std")]
 impl std::fmt::Debug for Maze {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
         for iy in 0..self.size.1 {
@@ -122,6 +128,7 @@ impl std::fmt::Debug for Maze {
 
 impl Maze {
     /// Generate an SVG version of the maze, returned as a String which you can then write to a file or use directly
+    #[cfg(feature = "std")]
     pub fn to_svg(&self, svgoptions: SvgOptions) -> Result<String> {
         // Get the options for convenience
         let padding = svgoptions.padding; // Pad the maze all around by this amount.
@@ -266,6 +273,7 @@ impl From<Maze> for MazeGraph {
     }
 }
 
+#[cfg(feature = "std")]
 impl PartialEq for Maze {
     fn eq(&self, other: &Self) -> bool {
         self.start == other.start
@@ -278,4 +286,5 @@ impl PartialEq for Maze {
     }
 }
 
+#[cfg(feature = "std")]
 impl Eq for Maze {}
