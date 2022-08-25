@@ -32,7 +32,8 @@ impl RbGenerator {
     pub fn new(seed: Option<[u8; 32]>) -> RbGenerator {
         RbGenerator {
             rng: match seed {
-                None => ChaChaRng::from_entropy(),
+                // None => ChaChaRng::from_entropy(), - from_entropy is not present in latest rand
+                None => ChaChaRng::from_seed([42; 32]),
                 Some(seed) => ChaChaRng::from_seed(seed),
             },
         }
